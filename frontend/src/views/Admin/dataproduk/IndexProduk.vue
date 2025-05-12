@@ -14,11 +14,19 @@ import axios from 'axios';
 
 const dataproducts = ref([]);
 
-
 const getAllProduct = async() => {
   const response = await axios.get("http://localhost:3000/api/v1/admin/getallproduct");
 
   dataproducts.value = response.data.data;
+}
+
+const deleteProduk = async(id_produk) => {
+  try {
+    await axios.delete(`http://localhost:3000/api/v1/admin/deleteProduct/${id_produk}`);
+    alert("Data produk berhasil di hapus!");
+  } catch(error) {
+    console.error("Error : ", error);
+  }
 }
 
 onMounted(() => {
@@ -57,17 +65,17 @@ onMounted(() => {
             </tr>
           </thead>
           <tbody>
-            <tr v-for="product in dataproducts" :key="product.id_product">
+            <tr v-for="product in dataproducts" :key="product.id_produk">
               <td><img :src="`http://localhost:3000/img/${product.gambar}`" width="100"></td>
               <td>{{ product.nama_produk }}</td>
               <td>{{ product.merek_produk }}</td>
               <td>{{ product.stokProduk }}</td>
               <td>Rp. {{ product.hargaProduk }}</td>
               <td>
-                <RouterLink :to="`/ubahproduct/${product.id_product}`" class="btn btn-primary">Ubah</RouterLink>
+                <RouterLink :to="`/ubahproduk/${product.id_produk}`" class="btn btn-primary">Ubah</RouterLink>
               </td>
               <td>
-                <button class="btn btn-danger">Hapus</button>
+                <button class="btn btn-danger" @click="deleteProduk(product.id_produk)">Hapus</button>
               </td>
             </tr>
           </tbody>

@@ -79,7 +79,7 @@ const addNewProducts = async(e) => {
           </div>
           <div class="mb-3">
             <label for="stokProduk" class="form-label">Stok Produk</label>
-            <input type="number" class="form-control" id="merek_produk" v-model="merekProduk">
+            <input type="number" class="form-control" id="stokProduk" v-model="stokProduk">
           </div>
           <div class="mb-3">
             <label for="hargaProduk" class="form-label">Harga Produk</label>
