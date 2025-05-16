@@ -3,6 +3,10 @@ const router = express();
 const upload = require("../config/upload");
 const { getAllProduk, addProduct, getAllProdukById, updateProduk, deleteProduk } = require("../controller/ProdukController");
 const { listProduct, detailProduct } = require("../controller/PelangganController");
+const { register } = require("../controller/RegisterController");
+
+// endpoint register and login
+router.post("/api/v1/register", register);
 
 // endpoint admin
 router.get("/api/v1/admin/getallproduct", getAllProduk);
