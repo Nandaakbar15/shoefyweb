@@ -4,9 +4,12 @@ const upload = require("../config/upload");
 const { getAllProduk, addProduct, getAllProdukById, updateProduk, deleteProduk } = require("../controller/ProdukController");
 const { listProduct, detailProduct } = require("../controller/PelangganController");
 const { register } = require("../controller/RegisterController");
+const { login, logout } = require("../controller/LoginController");
 
 // endpoint register and login
+router.post("/api/v1/login", login);
 router.post("/api/v1/register", register);
+router.get("/api/v1/logout", logout);
 
 // endpoint admin
 router.get("/api/v1/admin/getallproduct", getAllProduk);

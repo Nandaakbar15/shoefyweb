@@ -1,6 +1,21 @@
 <!-- eslint-disable no-unused-vars -->
 <script setup>
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
+import axios from 'axios';
+
+const navigate = useRouter();
+
+const handleLogout = async() => {
+  try {
+    localStorage.removeItem("token");
+
+    await axios.get("http://localhost:3000/api/v1/logout");
+
+    navigate.push("/login");
+  } catch(error) {
+    console.error("Error : ", error);
+  }
+}
 </script>
 
 <template>
@@ -24,7 +39,7 @@ import { RouterLink } from 'vue-router';
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="#" @click.prevent="handleLogout">Logout</a></li>
                     </ul>
                 </li>
             </ul>

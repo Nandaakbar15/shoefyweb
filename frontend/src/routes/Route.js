@@ -5,6 +5,7 @@ import DashboardAdmin from '@/views/Admin/DashboardAdmin.vue';
 import IndexProduk from '@/views/Admin/dataproduk/IndexProduk.vue';
 import TambahProduk from '@/views/Admin/dataproduk/TambahProduk.vue';
 import UbahProduk from '@/views/Admin/dataproduk/UbahProduk.vue';
+import DashboardCustomer from '@/views/Customers/DashboardCustomer.vue';
 import { createMemoryHistory, createRouter } from 'vue-router'
 
 // import HomeView from './HomeView.vue'
@@ -17,7 +18,8 @@ const routes = [
   { path: '/dashboardadmin', component: DashboardAdmin },
   { path: '/dataprodukadmin', component: IndexProduk},
   { path: '/tambahprodukadmin', component: TambahProduk },
-  { path: '/ubahproduk/:id_produk', component: UbahProduk, props: true}
+  { path: '/ubahproduk/:id_produk', component: UbahProduk, props: true},
+  { path: '/dashboardpelanggan', component: DashboardCustomer}
 ]
 
 const router = createRouter({
