@@ -17,6 +17,10 @@ import { RouterLink } from 'vue-router';
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Data Produk
                             </RouterLink>
+                            <RouterLink class="nav-link" to="/datakaryawan_admin">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Data Karyawan
+                            </RouterLink>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
