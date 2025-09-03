@@ -28,3 +28,11 @@ model Produk {
     hargaProduk Int
     gambar String
 }
+
+model Employee {
+    id_karyawan Int @id @default(autoincrement())
+    nama_karyawan String
+    alamat String
+    no_telp String
+    jabatan String
+}
