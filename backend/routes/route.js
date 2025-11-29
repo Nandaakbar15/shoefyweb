@@ -1,9 +1,30 @@
 const express = require("express");
 const router = express();
 const upload = require("../config/upload");
-const { getAllProduk, addProduct, getAllProdukById, updateProduk, deleteProduk } = require("../controller/ProdukController");
-const { getAllEmployee, addNewEmplyee, getEmployeeById, updateEmployee, deleteEmployee } = require('../controller/EmployeeController');
-const { listProduct, detailProduct } = require("../controller/PelangganController");
+const {
+  getAllProduk,
+  addProduct,
+  getAllProdukById,
+  updateProduk,
+  deleteProduk,
+} = require("../controller/ProdukController");
+const {
+  getAllEmployee,
+  addNewEmplyee,
+  getEmployeeById,
+  updateEmployee,
+  deleteEmployee,
+} = require("../controller/EmployeeController");
+const {
+  getAllUsers,
+  detailUser,
+  changePassword,
+} = require("../controller/UserController");
+
+const {
+  listProduct,
+  detailProduct,
+} = require("../controller/PelangganController");
 const { register } = require("../controller/RegisterController");
 const { login, logout } = require("../controller/LoginController");
 
@@ -21,9 +42,17 @@ router.get("/api/v1/admin/getProductbyId/:id_produk", getAllProdukById);
 
 router.post("/api/v1/admin/addProduct", upload.single("gambar"), addProduct);
 
-router.put("/api/v1/admin/updateproduct/:id_produk", upload.single("gambar"), updateProduk);
+router.put(
+  "/api/v1/admin/updateproduct/:id_produk",
+  upload.single("gambar"),
+  updateProduk
+);
 
 router.delete("/api/v1/admin/deleteProduct/:id_produk", deleteProduk);
+
+// endpoint admin user
+router.get("/api/v1/admin/getalluser", getAllUsers);
+router.get("/api/v1/admin/detailUser/:id", detailUser);
 
 // endpoint admin employee
 router.get("/api/v1/admin/getallemployee", getAllEmployee);
